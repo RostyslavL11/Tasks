@@ -313,24 +313,25 @@
 {
 	// 21  Создайте переменную num и присвойте ей значение '12345'. Найдите произведение (умножение) цифр этого числа.
 	
-	let numStr = Number('12345');
+	let num = '12345';
 
-	console.log(typeof (numStr));
-
-
-
-
-
-
-
-	// for (let i = 0; i < num.length; i++) {
-	// 	console.log(Number(num[i]));
-	// 	console.log(typeof num[i]);
-	// }
+	let newArr = Array.from(num);
+	console.log(newArr);
 	
+	let sumOfNum = newArr.reduce((a, b) => {
+		return a * b;
+	}); 
+	console.log(sumOfNum);
+}
 
 
+{
+	// 22 let num = '12345';
+	const arr = {
+		'ru':['голубой', 'красный', 'зеленый'],
+		'en':['blue', 'red', 'green'],
+	};
 
-
+	// console.log(arr['ru'][1]);
 }
 
