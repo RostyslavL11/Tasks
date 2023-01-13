@@ -376,3 +376,93 @@
     console.log(obj.Петя);
     console.log(obj.Коля);
 }
+
+{
+    // 28 Создайте объект с днями недели. Ключами в нем должны служить номера дней от начала недели (понедельник - первый и т.д.). Выведите на экран текущий день недели.
+
+    const week = {
+        1: "Monday",
+        2: "tuesday",
+        3: "wednesday",
+        4: "thursday",
+        5: "friday",
+        6: "saturday",
+        7: "sunday",
+    }
+
+    console.log(week[5]);
+    let day = week[5];
+    console.log(day);
+}
+
+{
+    //29 
+    const arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    console.log(arr[1][0]);
+}
+
+{
+    // 30 Дан объект {js:['jQuery', 'Angular'], php: 'hello', css: 'world'}. Выведите с его помощью слово 'jQuery'.
+    const obj = { 
+        js: ['jQuery', 'Angular'], 
+        php: 'hello', css: 'world' 
+    }
+    console.log(obj.js[0]);
+}
+
+{
+    // 31 Создайте двухмерный массив. Первые два ключа - это 'ru' и 'en'. Пусть первый ключ содержит элемент, являющийся массивом названий дней недели по-русски, а второй - по-английски. Выведите с помощью этого массива понедельник по-русски и среду по английски (пусть понедельник - это нулевой день).
+
+    const obj = {
+        ua: ['понеділок', 'вівторок ', 'середа', 'четвер', 'п"ятниця', 'субота', 'неділя'],
+        en: ['Monday', 'Tuesday ', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    }
+    console.log(obj.ua[0], obj.en[0],);
+    
+    let lang = obj.ua;
+    let day = lang[4];
+
+    console.log(day);
+}
+
+{
+    // 32 
+
+    let a = 0;
+    if(a == 0) {
+        console.log('ok')
+    } else {
+        console.log('wrong')
+    }
+
+    let a1 = 5;
+    if(a1 < 0) {
+        console.log('ok')
+    } else {
+        console.log('wrong')
+    }
+
+    let a2 = 2
+
+    if(!a2 == 0) {
+        console.log('ok')
+    } else {
+        console.log('wrong')
+    }
+
+
+    let test = 'test';
+
+    if(test == 'test') {
+        console.log('test / ok')
+    } else {
+        console.log('wrong')
+    }
+
+}
+
+
+
+
+
+// http://old.code.mu/tasks/javascript/base/rabota-s-konstrukciyami-if-else-switch-case-v-javascript.html
