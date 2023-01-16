@@ -598,9 +598,57 @@
 
 {
 	// 43 Дана строка, состоящая из символов, например, 'abcde'. Проверьте, что первым символом этой строки является буква 'a'. Если это так - выведите 'да', в противном случае выведите 'нет'.
-
 	let str = 'abcde';
-// test 
-// test 2
+    
+    for (let i = 0; i < str.length; i++) {
+        if(str[0][i] == 'a') {
+            console.log('yes');
+            break;
+        } else {
+            console.log('error');
+        }
+    }
+    
+    // another way
+    let str1 = 'abcde';
+    if (str1.indexOf('a') == 0) {
+        console.log('yes');
+    } else {
+        console.log('error');
+    }
+}
 
+{
+    // 44 Дана строка с цифрами, например, '12345'. Проверьте, что первым символом этой строки является цифра 1, 2 или 3. Если это так - выведите 'да', в противном случае выведите 'нет'.
+
+    let num = '12345';
+
+    for (let i = 0; i < num.length; i++) {
+        if(num[0][i] == '1' || num[0][i] == '2' || num[0][i] == '3') {
+            console.log('yes');
+            break;
+        } else {
+            console.log('error');
+            break;
+        }
+    }
+}
+
+{
+    // 45 Дана строка из 3-х цифр. Найдите сумму этих цифр. То есть сложите как числа первый символ строки, второй и третий.
+
+    let num = '123';
+
+    let arr = num.split('');
+    let arrNum =  arr.map(Number);
+    let arrSum = 0;
+
+    for (let i = 0; i < arrNum.length; i++) {
+        arrSum = arrNum[i] + arrNum[i];
+    }
+
+    
+    
+    console.log(arrNum);
+    console.log(arrSum);
 }
