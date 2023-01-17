@@ -422,7 +422,7 @@
 		ua: ['понеділок', 'вівторок ', 'середа', 'четвер', 'п"ятниця', 'субота', 'неділя'],
 		en: ['Monday', 'Tuesday ', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 	};
-	console.log(obj.ua[0], obj.en[0], );
+	console.log(obj.ua[0], obj.en[0],);
 
 	let lang = obj.ua;
 	let day = lang[4];
@@ -579,15 +579,15 @@
 	} else if (day > 20) {
 		console.log('3rd decade');
 	}
-	
+
 }
 
 {
 	// 42 В переменной month лежит какое-то число из интервала от 1 до 12. Определите в какую пору года попадает этот месяц (зима, лето, весна, осень).
 	let month = 12;
-	if(month <= 2 || month == 12) {
+	if (month <= 2 || month == 12) {
 		console.log('Winter');
-	} else if (month > 3 && month <5) {
+	} else if (month > 3 && month < 5) {
 		console.log('Spring');
 	} else if (month >= 6 && month <= 8) {
 		console.log('Summer');
@@ -599,56 +599,112 @@
 {
 	// 43 Дана строка, состоящая из символов, например, 'abcde'. Проверьте, что первым символом этой строки является буква 'a'. Если это так - выведите 'да', в противном случае выведите 'нет'.
 	let str = 'abcde';
-    
-    for (let i = 0; i < str.length; i++) {
-        if(str[0][i] == 'a') {
-            console.log('yes');
-            break;
-        } else {
-            console.log('error');
-        }
-    }
-    
-    // another way
-    let str1 = 'abcde';
-    if (str1.indexOf('a') == 0) {
-        console.log('yes');
-    } else {
-        console.log('error');
-    }
+
+	for (let i = 0; i < str.length; i++) {
+		if (str[0][i] == 'a') {
+			console.log('yes');
+			break;
+		} else {
+			console.log('error');
+		}
+	}
+
+	// another way
+	let str1 = 'abcde';
+	if (str1.indexOf('a') == 0) {
+		console.log('yes');
+	} else {
+		console.log('error');
+	}
 }
 
 {
-    // 44 Дана строка с цифрами, например, '12345'. Проверьте, что первым символом этой строки является цифра 1, 2 или 3. Если это так - выведите 'да', в противном случае выведите 'нет'.
+	// 44 Дана строка с цифрами, например, '12345'. Проверьте, что первым символом этой строки является цифра 1, 2 или 3. Если это так - выведите 'да', в противном случае выведите 'нет'.
 
-    let num = '12345';
+	let num = '12345';
 
-    for (let i = 0; i < num.length; i++) {
-        if(num[0][i] == '1' || num[0][i] == '2' || num[0][i] == '3') {
-            console.log('yes');
-            break;
-        } else {
-            console.log('error');
-            break;
-        }
-    }
+	for (let i = 0; i < num.length; i++) {
+		if (num[0][i] == '1' || num[0][i] == '2' || num[0][i] == '3') {
+			console.log('yes');
+			break;
+		} else {
+			console.log('error');
+			break;
+		}
+	}
 }
 
 {
-    // 45 Дана строка из 3-х цифр. Найдите сумму этих цифр. То есть сложите как числа первый символ строки, второй и третий.
+	// 45 Дана строка из 3-х цифр. Найдите сумму этих цифр. То есть сложите как числа первый символ строки, второй и третий.
 
-    let num = '123';
+	let num = '583';
 
-    let arr = num.split('');
-    let arrNum =  arr.map(Number);
-    let arrSum = 0;
+	let arr = num.split('');
+	let arrNum = arr.map(Number);
+	let arrSum = 0;
+	let arrSum1 = 0;
 
-    for (let i = 0; i < arrNum.length; i++) {
-        arrSum = arrNum[i] + arrNum[i];
-    }
+	for (let i = 0; i < arrNum.length; i++) {
+		arrSum += arrNum[i];
+	}
+	console.log(arrSum);
 
-    
-    
-    console.log(arrNum);
-    console.log(arrSum);
+	//// another way
+	arrNum.forEach(function (item) {
+		arrSum1 += item;
+	});
+	console.log(arrSum1);
+
+	///// reduce 
+	let someNumbers = [1, 10, 2];
+	let result = someNumbers.reduce(function (passedIn, item) {
+		return passedIn + item;
+
+	}, 0);
+	console.log(result);
+
+}
+
+{
+	// 46  Дана строка из 6-ти цифр. Проверьте, что сумма первых трех цифр равняется сумме вторых трех цифр. Если это так - выведите 'да', в противном случае выведите 'нет'.
+
+	let str = '123124';
+	let arrNum = str.split('').map(Number);
+	console.log(arrNum);
+	let middleIndex = Math.ceil(arrNum.length / 2);
+	let arrFirstPart = arrNum.splice(0, middleIndex);
+	let arrSecondPart = arrNum.splice(-middleIndex);
+
+	console.log(arrFirstPart);
+	console.log(arrSecondPart);
+
+	const calculate = function(arr1, arr2) {
+		arr1.forEach(function(item) {
+			arr1 += item;
+		});
+
+		arr2.forEach(function(item) {
+			arr2 += item;
+		});
+	
+		if(arr1 == arr2) {
+			console.log('yes');
+		} else {
+			console.log('error');
+		}
+	};
+	calculate(arrFirstPart, arrSecondPart);
+
+	// another way
+	let str2 = '123124';
+	let arrNum2 = str2.split('').map(Number);
+	console.log(arrNum2);
+	let middleIndex2 = Math.ceil(arrNum2.length / 2);
+	let arrFirstPart2 = arrNum.splice(0, middleIndex2);
+	let arrSecondPart2 = arrNum.splice(-middleIndex2);
+	
+	for (let i = 0; i < arrFirstPart2.length; i++){
+		arrFirstPart2[i] += arrFirstPart2[i];
+	}
+	console.log(arrFirstPart2);
 }
