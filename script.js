@@ -678,16 +678,16 @@
 	console.log(arrFirstPart);
 	console.log(arrSecondPart);
 
-	const calculate = function(arr1, arr2) {
-		arr1.forEach(function(item) {
+	const calculate = function (arr1, arr2) {
+		arr1.forEach(function (item) {
 			arr1 += item;
 		});
 
-		arr2.forEach(function(item) {
+		arr2.forEach(function (item) {
 			arr2 += item;
 		});
-	
-		if(arr1 == arr2) {
+
+		if (arr1 == arr2) {
 			console.log('yes');
 		} else {
 			console.log('error');
@@ -695,16 +695,153 @@
 	};
 	calculate(arrFirstPart, arrSecondPart);
 
+
 	// another way
-	let str2 = '123124';
+	let str2 = '123123';
 	let arrNum2 = str2.split('').map(Number);
 	console.log(arrNum2);
 	let middleIndex2 = Math.ceil(arrNum2.length / 2);
-	let arrFirstPart2 = arrNum.splice(0, middleIndex2);
-	let arrSecondPart2 = arrNum.splice(-middleIndex2);
-	
-	for (let i = 0; i < arrFirstPart2.length; i++){
-		arrFirstPart2[i] += arrFirstPart2[i];
-	}
+	let arrFirstPart2 = arrNum2.splice(0, middleIndex2);
+	let arrSecondPart2 = arrNum2.splice(-middleIndex2);
+
+
 	console.log(arrFirstPart2);
+	console.log(arrSecondPart2);
+
+	let sum1 = 0;
+	let sum2 = 0;
+	for (let i = 0; i < arrFirstPart2.length; i++) {
+		sum1 += arrFirstPart2[i];
+	}
+
+	for (let i = 0; i < arrSecondPart2.length; i++) {
+		sum2 += arrSecondPart2[i];
+	}
+
+	if (sum1 == sum2) {
+		console.log('ok');
+	} else {
+		console.log('error');
+	}
+}
+
+{
+	// 47 Выведите столбец чисел от 1 до 100.
+
+	let counter = 0;
+	for (let i = 0; i <= 100; i++) {
+		counter = `${i} \n`;
+		// console.log(counter);
+	}
+
+	let counter1 = 1;
+
+	while (counter1 <= 100) {
+		// console.log(counter1);
+		counter1++;
+	}
+
+}
+
+
+{
+	// 48 Выведите столбец чисел от 11 до 33.
+	let counter = 11;
+	for (let i = 0; i <= 33; i++) {
+		counter = `${i} \n`;
+		// console.log(counter);
+	}
+
+	let counter1 = 11;
+	while (counter1 <= 33) {
+		// console.log(counter1);
+		counter1++;
+	}
+}
+
+{
+	// 49 Выведите столбец четных чисел в промежутке от 0 до 100.
+	let num = 0;
+	while (num <= 100) {
+		if (num % 2 == 0) {
+			// console.log(num);
+		}
+		num++;
+	}
+
+	let num1 = 0;
+	for (let i = 0; i <= 100; i++) {
+		if (num1 % 2 == 0) {
+			// console.log(num1);
+		}
+		num1++;
+	}
+}
+
+{
+	// 50  С помощью цикла найдите сумму чисел от 1 до 100.
+
+	let num = 0;
+	let i = 1;
+	while (i <= 100) {
+		num = num + i;
+		i++;
+	}
+	console.log(num);
+
+
+	let num1 = 0;
+	for (let i = 0; i <= 100; i++) {
+		num1 += i;
+	}
+	console.log(num1);
+}
+
+
+{
+	// 51  Дан массив с элементами [1, 2, 3, 4, 5]. С помощью цикла for выведите все эти элементы на экран.
+
+	let arr = [1, 20, 3, 4, 10];
+
+	for (let i = 0; i < arr.length; i++) {
+		console.log(arr[i]);
+	}
+}
+
+{
+	// 52 Дан массив с элементами [1, 2, 3, 4, 5]. С помощью цикла for найдите сумму элементов этого массива. Запишите ее в переменную result.
+
+	let arr = [1, 2, 3, 4, 5];
+	let result = 0;
+
+	for (let i = 0; i < arr.length; i++) {
+		result += arr[i];
+	}
+	console.log(result);
+}
+
+{
+	// 53 Дан объект obj. С помощью цикла for-in выведите на экран ключи и элементы этого объекта.
+	var obj = { green: 'зеленый', red: 'красный', blue: 'голубой' };
+
+	for (let prop in obj) {
+		console.log(prop);
+		console.log(obj[prop]);
+	}
+}
+
+{
+	// 54  Дан объект obj с ключами Коля, Вася, Петя с элементами '200', '300', '400'. С помощью цикла for-in выведите на экран строки такого формата: 'Коля - зарплата 200 долларов.'.
+
+	const obj = {
+		'Коля': '200', 
+		Вася: '300', 
+		Петя : '400' 
+	};
+
+	for (let prop in obj) {
+		if(prop == 'Коля') {
+			console.log(`${prop} - зарплата ${obj[prop]} долларов.`);
+		}
+	}
 }
