@@ -1151,13 +1151,13 @@
 
     let str = 'я учу javascript!';
 
-    console.log(str.indexOf('учу'))
+    console.log(str.indexOf('учу'));
 }
 
 {
     // 82  Дана переменная str, в которой хранится какой-либо текст. Реализуйте обрезание длинного текста по следующему принципу: если количество символов этого текста больше заданного в переменной n, то в переменную result запишем первые n символов строки str и добавим в конец троеточие '...'. В противном случае в переменную result запишем содержимое переменной str.
 
-    let str = 'some text aaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    let str = 'some text aaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     let n = 10;
     let result = '';
     if (str.length >= n) {
@@ -1166,13 +1166,13 @@
         result += str;
     }
 
-    console.log(result)
+    console.log(result);
 }
 
 {
     // 83  Дана строка 'Я-учу-javascript!'. Замените все дефисы на '!' с помощью глобального поиска и замены.
     let str = 'Я-учу-javascript!';
-    console.log(str.replace(/-/g, '!'))
+    console.log(str.replace(/-/g, '!'));
 }
 
 {
@@ -1180,7 +1180,7 @@
 
     let str = 'я учу javascript!';
     let arr = str.split(' ');
-    console.log(arr)
+    console.log(arr);
 }
 
 {
@@ -1194,22 +1194,22 @@
     // 86  Преобразуйте первую букву строки в верхний регистр.
     let str = 'Some text';
     let newStr = str.charAt(0).toUpperCase() + str.slice(1);
-    console.log(newStr)
+    console.log(newStr);
 }
 
 {
     // 87  Преобразуйте первую букву каждого слова строки в верхний регистр.
     let str = '"freeCodeCamp is an awesome resource"';
     let words = str.split(" ");
-    let capitalizedWords = ""
+    let capitalizedWords = "";
 
     for (let i = 0; i < words.length; i++) {
         let word = words[i];
         let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
-        capitalizedWords += capitalizedWord + " "
+        capitalizedWords += capitalizedWord + " ";
     }
 
-    console.log(capitalizedWords.trim())
+    console.log(capitalizedWords.trim());
 
 
     let str1 = "hello, world!";
@@ -1230,7 +1230,274 @@
     }
 
     let newStr = words.join('');
-
     console.log(newStr); // виведе "varTestText"
+}
 
+{
+    // 89 Дан массив с числами. Используя метод map извлеките из каждого элемента массива квадратный корень и запишите результат в новый массив.
+
+    let arr = [1, 2, 3, 4, 5];
+
+    let result = arr.map(function (elem) {
+        return Math.sqrt(elem);
+    });
+
+    console.log(result);
+}
+
+{
+    // 90 Дан массив со строками. Используя метод map в конец значению каждого элемента массива добавьте символ '!'.
+    let arr = ['123', '456', '789'];
+
+    let result = arr.map(elem => elem + "!");
+
+    console.log(result);
+}
+
+{
+    // 91 Дан массив со строками. Используя метод map переверните символы каждой строки в обратном порядке.
+    let arr = ['abc', 'abc', 'abc'];
+
+    let result = arr.map(item => item.split('').reverse().join(''));
+    console.log(result);
+}
+
+{
+    // 92 Дан следующий массив: Используя метод map преобразуйте этот массив в следующий: 
+    //  let arr = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ];
+
+    let arr = ['123', '456', '789'];
+
+    let newArr = arr.map(item => item.split('').map(Number));
+    console.log(newArr);
+}
+
+{
+    // 93 Дан массив с числами. Используя метод map запишите в каждый элемент массива значение этого элемента, умноженное на его порядковый номер в массиве.
+    let arr = [1, 2, 3, 4, 5];
+
+    let newArr = arr.map(function (item, index) {
+        return item * (index + 1);
+    });
+
+    console.log(newArr);
+}
+
+{
+    // 94 Давайте теперь применим метод map к каждому подмассиву и возведем каждый его элемент в квадрат:
+    let arr = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+
+    let newArr = arr.map(function (item) {
+        return item.map(function (num) {
+            return num * num
+        })
+    });
+    console.log(newArr);
+}
+
+{
+    // 95 Дан масив рядків. Перетворіть кожен рядок у верхній регістр.
+    let arr = ['apple', 'banana', 'cherry'];
+
+    let newArr = arr.map(item => item.toUpperCase());
+    console.log(newArr);
+}
+
+{
+    // 96 Дан масив об'єктів. Поверніть масив з тільки імені та прізвища кожного об'єкта.
+    let arr = [{
+            firstName: 'John',
+            lastName: 'Doe'
+        },
+        {
+            firstName: 'Jane',
+            lastName: 'Doe'
+        },
+        {
+            firstName: 'Bob',
+            lastName: 'Smith'
+        }
+    ];
+
+    let newArr = arr.map(function (obj) {
+        return `${obj.firstName} ${obj.lastName}`
+    })
+    console.log(newArr);
+}
+
+{
+    // 97 Дан масив чисел. Поверніть масив з тільки парних чисел.
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    let newArr = arr.map(function (item) {
+        if (item % 2 == 0) {
+            return item
+        }
+    })
+    console.log(newArr);
+}
+
+{
+    // 98 Дан масив рядків. Поверніть масив з довжин кожного рядка.
+    let arr = ['apple', 'banana', 'cherry'];
+
+    let newArr = arr.map(item => item.length)
+    console.log(newArr);
+}
+
+{
+    // 99 Дан масив об'єктів. Додайте до кожного об'єкта нове властивість fullName, яке складається з імені та прізвища об'єкта, розділених пробілом.
+    let arr = [{
+            firstName: 'John',
+            lastName: 'Doe'
+        },
+        {
+            firstName: 'Jane',
+            lastName: 'Doe'
+        },
+        {
+            firstName: 'Bob',
+            lastName: 'Smith'
+        }
+    ];
+
+    let newArr = arr.map(function(item) {
+        item.fullName = `${item.firstName} ${item.lastName}`;
+
+        return item
+    });
+
+    console.log(newArr);
+}
+
+{
+    // 100 Задача: Дано масив об'єктів. Потрібно створити новий масив, в якому кожен елемент буде дорівнювати значенню певного поля відповідного об'єкта вихідного масиву.
+    const people = [
+        {name: 'John', age: 30 },
+        {name: 'Mary', age: 25 },
+        {name: 'Bob', age: 40}
+    ];
+
+    const newArr = people.map(function (item) {
+        return item.age
+    })
+    console.log(newArr);
+}
+
+{
+    // 101 
+    const arr = [1, 2, 5, 7,]
+
+    arr.forEach(function (item, index) {
+        // console.log(item)
+    }) 
+}
+
+{
+    // 102 Выведите на экран сумму элементов этого массива.
+    let arr = [1, 2, 3];
+    let arrSum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        arrSum += arr[i]
+    }
+
+    let sum = 0;
+
+    arr.forEach(function(item) {
+        sum += item;
+    })
+    // console.log(sum)
+}
+
+{
+    // 103 Выведите с помощью этого массива следующую строку:
+    let arr = ['a', 'b', 'c', 'd'];
+    let newArr = arr.join('+')
+    console.log(newArr)
+}
+
+{
+    // 104
+    let arr = ['a', 'b', 'c'];
+    console.log(arr[arr.length-1])
+}
+
+{
+    // 105 Создайте массив с элементами 'a', 'b', 'c'. Запишите вместо первого элемента число 1, вместо второго - 2, вместо третьего - 3.
+    let arr = ['a', 'b', 'c'];
+    arr[0] = 1;
+    arr[1] = 2;
+    arr[2] = 3;
+    console.log(arr)
+}
+
+{
+    // 106 оздайте массив с числами. Прибавьте к каждому элементу массива число 3. Выведите на экран измененный массив.
+    let arr = [1, 2, 3];
+    let newArr = arr.map(item => {
+        return item +'3'
+    })
+    console.log(newArr);
+}
+
+{
+    // 107 Создайте массив с элементами 1, 2 и 3. С помощью оператора ++ увеличьте каждый элемент массива на единицу.
+    let arr = [1, 2, 3, 4];
+
+    // let newArr = arr.map(item => {
+    //     return item + 1
+    // })
+    // console.log(newArr);
+    
+    for (let i = 0; i < arr.length; i++) {
+        arr[i]++
+        // ++arr[i]
+    }
+    console.log(arr);
+}
+{
+    // 108 
+    let arr = [];
+    
+    arr[0] = 1;
+    arr[1] = 2;
+    arr[2] = 3;
+    arr[3] = 5;
+    console.log(arr);
+}
+
+{
+    // 109 Узнайте длину следующего массива:
+    let arr = [];
+
+    arr[3] = 'a';
+    arr[8] = 'b';
+    console.log(arr);
+    console.log(arr.length);
+}
+
+{
+    // 110 Найдите сумму элементов, ключи которых хранятся в наших переменных.
+    let arr = [1, 2, 3, 4, 5];
+    let key1 = 1;
+    let key2 = 2;
+    console.log(arr[key1] + arr[key2])
+}
+
+{
+    // 111 
+    let arr = [1, 2, 3, 4, 10];
+    console.log(arr[arr.length - 1]);
+}
+
+{
+    // 112     Код должен найти сумму элементов массива:
+
+    let arr = [1, 2, 3, 4, 5];
+    console.log(arr[0] + arr[1] + arr[3] + arr[3] + arr[4]);
 }
