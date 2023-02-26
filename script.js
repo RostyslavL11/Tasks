@@ -1289,12 +1289,12 @@
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9]
-    ]
+    ];
 
     let newArr = arr.map(function (item) {
         return item.map(function (num) {
-            return num * num
-        })
+            return num * num;
+        });
     });
     console.log(newArr);
 }
@@ -1324,8 +1324,8 @@
     ];
 
     let newArr = arr.map(function (obj) {
-        return `${obj.firstName} ${obj.lastName}`
-    })
+        return `${obj.firstName} ${obj.lastName}`;
+    });
     console.log(newArr);
 }
 
@@ -1335,9 +1335,9 @@
 
     let newArr = arr.map(function (item) {
         if (item % 2 == 0) {
-            return item
+            return item;
         }
-    })
+    });
     console.log(newArr);
 }
 
@@ -1345,7 +1345,7 @@
     // 98 Дан масив рядків. Поверніть масив з довжин кожного рядка.
     let arr = ['apple', 'banana', 'cherry'];
 
-    let newArr = arr.map(item => item.length)
+    let newArr = arr.map(item => item.length);
     console.log(newArr);
 }
 
@@ -1365,10 +1365,10 @@
         }
     ];
 
-    let newArr = arr.map(function(item) {
+    let newArr = arr.map(function (item) {
         item.fullName = `${item.firstName} ${item.lastName}`;
 
-        return item
+        return item;
     });
 
     console.log(newArr);
@@ -1376,25 +1376,33 @@
 
 {
     // 100 Задача: Дано масив об'єктів. Потрібно створити новий масив, в якому кожен елемент буде дорівнювати значенню певного поля відповідного об'єкта вихідного масиву.
-    const people = [
-        {name: 'John', age: 30 },
-        {name: 'Mary', age: 25 },
-        {name: 'Bob', age: 40}
+    const people = [{
+            name: 'John',
+            age: 30
+        },
+        {
+            name: 'Mary',
+            age: 25
+        },
+        {
+            name: 'Bob',
+            age: 40
+        }
     ];
 
     const newArr = people.map(function (item) {
-        return item.age
-    })
+        return item.age;
+    });
     console.log(newArr);
 }
 
 {
     // 101 
-    const arr = [1, 2, 5, 7,]
+    const arr = [1, 2, 5, 7, ];
 
     arr.forEach(function (item, index) {
         // console.log(item)
-    }) 
+    });
 }
 
 {
@@ -1403,28 +1411,28 @@
     let arrSum = 0;
 
     for (let i = 0; i < arr.length; i++) {
-        arrSum += arr[i]
+        arrSum += arr[i];
     }
 
     let sum = 0;
 
-    arr.forEach(function(item) {
+    arr.forEach(function (item) {
         sum += item;
-    })
+    });
     // console.log(sum)
 }
 
 {
     // 103 Выведите с помощью этого массива следующую строку:
     let arr = ['a', 'b', 'c', 'd'];
-    let newArr = arr.join('+')
-    console.log(newArr)
+    let newArr = arr.join('+');
+    console.log(newArr);
 }
 
 {
     // 104
     let arr = ['a', 'b', 'c'];
-    console.log(arr[arr.length-1])
+    console.log(arr[arr.length - 1]);
 }
 
 {
@@ -1433,15 +1441,15 @@
     arr[0] = 1;
     arr[1] = 2;
     arr[2] = 3;
-    console.log(arr)
+    console.log(arr);
 }
 
 {
     // 106 оздайте массив с числами. Прибавьте к каждому элементу массива число 3. Выведите на экран измененный массив.
     let arr = [1, 2, 3];
     let newArr = arr.map(item => {
-        return item +'3'
-    })
+        return item + '3';
+    });
     console.log(newArr);
 }
 
@@ -1453,17 +1461,16 @@
     //     return item + 1
     // })
     // console.log(newArr);
-    
+
     for (let i = 0; i < arr.length; i++) {
-        arr[i]++
+        arr[i]++;
         // ++arr[i]
     }
     console.log(arr);
-}
-{
+} {
     // 108 
     let arr = [];
-    
+
     arr[0] = 1;
     arr[1] = 2;
     arr[2] = 3;
@@ -1477,8 +1484,8 @@
 
     arr[3] = 'a';
     arr[8] = 'b';
-    console.log(arr);
-    console.log(arr.length);
+    // console.log(arr);
+    // console.log(arr.length);
 }
 
 {
@@ -1486,18 +1493,201 @@
     let arr = [1, 2, 3, 4, 5];
     let key1 = 1;
     let key2 = 2;
-    console.log(arr[key1] + arr[key2])
+    // console.log(arr[key1] + arr[key2]);
 }
 
 {
     // 111 
     let arr = [1, 2, 3, 4, 10];
-    console.log(arr[arr.length - 1]);
+    // console.log(arr[arr.length - 1]);
 }
 
 {
     // 112     Код должен найти сумму элементов массива:
-
     let arr = [1, 2, 3, 4, 5];
-    console.log(arr[0] + arr[1] + arr[3] + arr[3] + arr[4]);
+    // console.log(arr[0] + arr[1] + arr[3] + arr[3] + arr[4]);
+}
+
+{
+    // 113 Дан массив с числами. Найдите среднее арифметическое элементов этого массива.
+    let arr = [1, 2, 3, 4, 5];
+
+    let sum = arr.reduce(function (accumulator, item, index, array) {
+        // return accumulator + item;
+        return accumulator + item / array.length;
+    }, 0);
+
+    // console.log(sum);   
+}
+
+{
+    // 114 Дан массив с числами. Удалите из него все отрицательные числа и верните новый массив без них
+    let arr = [1, -2, 3, -4, 5];
+    let newArr = arr.filter(item => item > 0);
+    let newArr1 = arr.filter(function (item) {
+        return item > 0;
+    });
+    // console.log(newArr);    
+    // console.log(newArr1);    
+}
+
+{
+    // 115 Дан массив с числами. Найдите сумму квадратов элементов этого массива.   
+    let arr = [1, 2, 3, 4, 5];
+    let newArr = arr.reduce((current, item) => current + item ** 2, 0);
+    // console.log(newArr);
+
+    let newArr1 = 0;
+    for (let i = 0; i < arr.length; i++) {
+        // newArr1 += arr[i] * arr[i];
+        newArr1 += arr[i] ** 2;
+    }
+    // console.log(newArr1);
+}
+
+{
+    // 116 Дан массив со строками. Найдите самую длинную строку в этом массиве.
+    let arr = ['a', 'ab', 'abc', 'abcd'];
+
+    let longString = arr.reduce((acc, item) => item.length > acc.length ? item : acc);
+    // console.log(longString);
+
+    let newArr = arr.reduce(function (current, item) {
+        if (item.length > current.length) {
+            return item;
+        } else {
+            return current;
+        }
+    });
+    // console.log(newArr);
+}
+
+{
+    // 117 Дан массив с числами. Найдите максимальное и минимальное значение в этом массиве и верните их в виде объекта { max: ..., min: ... }.
+    let arr = [1, 2, 3, 4, 5];
+    let newObj = {
+        max: Math.max(...arr),
+        min: Math.min(...arr)
+    };
+    // console.log(newObj);
+
+    let arr1 = [1, 2, 3, 4, 5];
+    let max = arr1[0];
+    let min = arr1[0];
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr[i] > max) {
+            max = arr1[i];
+        } else if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+
+    let newObj1 = {
+        max: max,
+        min: min
+    };
+    // console.log(newObj1);
+}
+
+{
+    //118 Дан массив с числами. Отсортируйте элементы этого массива по убыванию.
+    let arr = [1, 50, 3, -2, 45, 5, 2];
+    arr.sort(function (a, b) {
+        return a - b;
+    });
+    // console.log(arr);
+}
+
+{
+    // 119 Возведите в квадрат каждый элемент этого объекта.
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+}
+
+{
+    // 120
+    let obj = {};
+    obj.a = 1;
+    obj.b = 12;
+    // console.log(obj);
+} {
+    // 121 Получите массив ключей следующего объекта:
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+    // console.log(Object.keys(obj)); //  ['x', 'y', 'z']
+} {
+    // 122 Найдите количество элементов в следующем объекте:
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+    // console.log(Object.keys(obj).length);
+}
+
+{
+    // 123
+    let obj = {
+        a: 1,
+        b: 2,
+        c: 3
+    };
+    let key = 'b';
+    // console.log(obj[key]);
+}
+
+{
+    // 124 Исправьте ошибку, допущенную в следующем коде:
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+    let key = 'x';
+    // console.log(obj[key]);
+}
+
+{
+    // 125 Исправьте ошибку, допущенную в следующем коде:
+    let key = 'x';
+    let obj = {
+        [key]: 1,
+        y: 2,
+        z: 3
+    };
+    // console.log(obj);
+}
+
+{
+    // 126
+    let key1 = 'x';
+    let key2 = 'y';
+    let key3 = 'z';
+
+    let obj = {
+        [key1]: 1,
+        [key2]: 2,
+        [key3]: 3
+    };
+    // console.log(obj);
+}
+
+{
+    // 127 Скажите, что выведется в консоль в результате выполнения следующего кода:
+    let obj = {x: 1, y: 2, z: 3};
+    // console.log('x' in obj);
+    // console.log('w' in obj);
+}
+
+{
+    // 128
+    let obj = {x: null, y: 2, z: 3};
+    // console.log( typeof obj.x); // object
 }
