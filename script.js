@@ -1681,13 +1681,309 @@
 
 {
     // 127 Скажите, что выведется в консоль в результате выполнения следующего кода:
-    let obj = {x: 1, y: 2, z: 3};
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
     // console.log('x' in obj);
     // console.log('w' in obj);
 }
 
 {
     // 128
-    let obj = {x: null, y: 2, z: 3};
+    let obj = {
+        x: null,
+        y: 2,
+        z: 3
+    };
     // console.log( typeof obj.x); // object
+}
+
+
+{
+    // 129 завдання на перебор обєкту for in 
+    const person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 30,
+        gender: "male",
+        skills: {
+            English: 'B2',
+        }
+    };
+
+    let counter = 0;
+
+    for (let key in person) {
+        if (typeof (person[key]) === 'object') {
+            for (let i in person[key]) {
+                // console.log(`Властивість ${i} має значення: ${person[key][i]}`);
+                counter++;
+            }
+        } else {
+            // console.log(`Властивість ${key} має значення: ${person[key]}`);
+            counter++;
+        }
+
+    }
+    // console.log(counter);
+}
+
+{
+    // 130 Напишіть функцію findLongestWord(str), яка приймає рядок і повертає довжину найдовшого слова в цьому рядку:
+    const findLongestWord = function (str) {
+        let words = str.split(' ');
+        let longestWord = '';
+        for (let i = 0; i < words.length; i++) {
+            if (words[i].length > longestWord.length) {
+                longestWord = words[i];
+            }
+        }
+        return longestWord.length;
+    };
+
+    // console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
+}
+
+{
+    // 131 Напишіть функцію findLongestKey(key), яка приймає обєект і повертає довжину найдовшого ключа в цьому обєкті:
+    const person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 30,
+        gender: "male",
+        skills: {
+            English: 'B2',
+        }
+    };
+    let arrKeys = [];
+
+    const findLongestKey = function (obj) {
+
+        for (let key in obj) {
+            if (typeof (obj[key]) === 'object') {
+                for (let i in obj[key]) {
+                    arrKeys.push(i);
+                }
+            } else {
+                arrKeys.push(key);
+            }
+        }
+        console.log(findLongestKey[person]);
+
+        let maxLenght = arrKeys.reduce(function (a, b) {
+            return Math.max(a, b.length);
+        }, 0);
+
+        // return maxLenght;
+        // return arrKeys.length;
+
+
+    };
+    // console.log(findLongestKey(person));
+}
+
+{
+    // 132 вивести назву найдовшого елемента масиву в JS
+    const person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 30,
+        gender: "male",
+        skills: {
+            English: 'B2',
+        }
+    };
+
+    const findLongestKey = function (obj) {
+        let arrKeys = [];
+
+        for (let key in obj) {
+            if (typeof (obj[key]) === 'object') {
+                for (let i in obj[key]) {
+                    arrKeys.push(i);
+                }
+            } else {
+                arrKeys.push(key);
+            }
+        }
+
+
+        let maxLenghtName = arrKeys.reduce((a, b) => a.length > b.length ? a : b);
+        return maxLenghtName;
+
+        // let maxLenghtName = arrKeys.reduce(function (a, b) {
+        //     if(a.length > b.length) {
+        //         return a;
+        //     } else {
+        //         return b;
+        //     }
+        // }, 0);
+        // return maxLenghtName;
+    };
+    // console.log(findLongestKey(person));
+}
+
+{
+    // 133 завдання з використання методом обєкту object keys 
+    let salaries = {
+        "Іван": 100,
+        "Петро": 300,
+        "Марія": 250
+    };
+
+    // let ObjKeys = Object.keys(salaries);
+    // console.log(ObjKeys);
+
+    // let ObjValues = Object.values(salaries);
+    // console.log(ObjValues);
+
+
+    // let ObjEntries = Object.entries(salaries);
+    // console.log(ObjEntries);
+
+    let sum = 0;
+    for (let value of Object.values(salaries)) {
+        sum = value;
+    }
+    // console.log(sum);
+}
+
+
+
+{
+    // 134 Код должен вывести элемент объекта:
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+    // console.log(obj.x);
+}
+
+{
+    // 135 Код должен вывести элемент объекта по ключу из переменной:
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+    let key = 'x';
+    // console.log(obj[key]);
+}
+
+{
+    // 136 Код должен вывести сумму элементов объекта:
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+
+    // 1) варіант
+    // let sum = obj.x + obj.y + obj.z;
+    // console.log(sum);
+
+    // 2) варіант 
+    let sum = 0;
+    for (let value of Object.values(obj)) {
+        sum += value;
+    }
+    // console.log(sum);
+}
+
+{
+    // 136 Код должен вывести количество элементов объекта:
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+
+    let sumOfElements = Object.keys(obj);
+    // console.log(sumOfElements.length);
+}
+
+{
+    // 137 Деструктуризуйте объект user и получите переменные name, age, isAdmin.
+    const user = {
+        name: "John",
+        age: 30,
+        isAdmin: true
+    };
+
+    const {
+        name,
+        age,
+        isAdmin
+    } = user;
+    // console.log(name);
+    // console.log(age);
+    // console.log(isAdmin);
+}
+
+{
+    // 138 Деструктурируйте объект person, чтобы получить переменные name, surname, years.
+    const person = {
+        name: "John",
+        surname: "Doe",
+        years: 30,
+    };
+
+    const {
+        name,
+        surname,
+        years
+    } = person;
+    // console.log(name);
+    // console.log(surname);
+    // console.log(years);
+}
+
+{
+    // 139 Деструктурируйте объект student и получите переменную name, а остальные данные объекта запишите в переменную info в виде объекта.
+    const student = {
+        name: "John",
+        age: 22,
+        city: "New York",
+        mark: 100
+    };
+
+    const {
+        name,
+        ...info
+    } = student;
+    // console.log(name);
+    // console.log(info);
+}
+
+{
+    // 140 Деструктурируйте объект fruits и получите переменные apple и banana. Затем поменяйте их значения местами.
+    let fruits = {
+        apple: "green",
+        banana: "yellow"
+    };
+
+    let {
+        apple,
+        banana
+    } = fruits;
+    [apple, banana] = [banana, apple];
+    // console.log(banana);
+    // console.log(apple);
+    // console.log(fruits);
+}
+
+{
+    // 141 Деструктурируйте объект person, чтобы получить переменную name, а все остальные свойства объекта записать в переменную info в виде массива.
+    const person = {
+        name: "John",
+        surname: "Doe",
+        years: 30,
+    };
+
+    const {name, ...info} = person;
+    const infoArray = Object.entries(info);
+    // console.log(infoArray);
 }
