@@ -1621,7 +1621,7 @@
         y: 2,
         z: 3
     };
-    // console.log(Object.keys(obj)); //  ['x', 'y', 'z']
+    // console.log(Object.keys(obj)); // ['x', 'y', 'z']
 } {
     // 122 Найдите количество элементов в следующем объекте:
     let obj = {
@@ -1983,7 +1983,138 @@
         years: 30,
     };
 
-    const {name, ...info} = person;
+    const {
+        name,
+        ...info
+    } = person;
     const infoArray = Object.entries(info);
     // console.log(infoArray);
+}
+// створюємо копію обєктів та масивів 
+
+{
+    // 142 Напишіть функцію mergeObjects(obj1, obj2), яка об'єднує властивості двох об'єктів в один об'єкт і повертає його:
+    const person = {
+        name: "John",
+        surname: "Doe",
+        years: 30,
+    };
+
+    const copyObject = function (obj1, obj2) {
+        let clone = Object.assign(obj1, obj2);
+        return console.log(clone);
+    };
+    // copyObject(person);
+
+    const obj1 = {
+        a: 1,
+        b: 2
+    };
+    const obj2 = {
+        c: 3,
+        d: 4
+    };
+    const mergeObjects = function (obj1, obj2) {
+        return Object.assign({}, obj1, obj2);
+    };
+    // console.log(mergeObjects(obj1, obj2))
+}
+
+{
+    // 143 Напишіть функцію cloneObject(obj), яка створює копію об'єкта і повертає його:
+    const obj = {
+        a: 1,
+        b: 2
+    };
+
+    const copy = function (obj) {
+        return Object.assign({}, obj);
+    };
+    const clonedObj = copy(obj);
+    // console.log(copy(clonedObj));
+}
+
+{
+    // 144 Напишіть функцію removeProperty(obj, prop), яка видаляє властивість з об'єкта і повертає модифікований об'єкт:
+    const obj = {
+        a: 1,
+        b: 5
+    };
+
+    const removeProperty = function (obj, prop) {
+        const newObj = Object.assign({}, obj);
+        delete newObj[prop];
+        return newObj;
+    };
+
+    const modifiedObj = removeProperty(obj, 'a');
+    // console.log(modifiedObj);
+}
+
+{
+    // 145 Напишіть функцію clone(obj), яка створює поверхневу копію об'єкта і повертає його:
+    const obj = {
+        a: 1,
+        b: 5
+    };
+
+    const copy = function (obj) {
+        return {
+            ...obj
+        };
+    };
+    const newObj = copy(obj);
+    // console.log(newObj);
+
+    const newObj1 = {
+        ...obj,
+        c: 10
+    };
+    // console.log(newObj1);
+}
+
+{
+    // 146 Напишіть функцію copyProperties(source, target), яка копіює властивості з одного об'єкта в інший і повертає модифікований об'єкт:
+    const copyProperties = function (oldPerson, newPerson) {
+        return {
+            ...oldPerson,
+            ...newPerson
+        };
+    };
+
+    const Oldperson = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        gender: "male"
+    };
+
+    const newPerson = {
+        firstName: "Jane",
+        lastName: "Doe",
+        age: 25
+    };
+
+
+    const updatedPerson  = copyProperties(Oldperson, newPerson);
+    // console.log(updatedPerson);
+}
+
+{
+    // 145 Напишіть функцію removeProperty(obj, prop), яка видаляє властивість з об'єкта і повертає модифікований об'єкт: використовуючи spread оператор для копіювання
+    const oldPerson = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        gender: "male"
+    };
+
+    const removeProperty = function (obj, prop) {
+        const newObj = {...obj};
+        delete  newObj[prop];
+        return newObj;
+    };
+
+    const newPerson = removeProperty(oldPerson, 'age');
+    console.log(newPerson);
 }
