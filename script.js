@@ -2096,7 +2096,7 @@
     };
 
 
-    const updatedPerson  = copyProperties(Oldperson, newPerson);
+    const updatedPerson = copyProperties(Oldperson, newPerson);
     // console.log(updatedPerson);
 }
 
@@ -2110,11 +2110,458 @@
     };
 
     const removeProperty = function (obj, prop) {
-        const newObj = {...obj};
-        delete  newObj[prop];
+        const newObj = {
+            ...obj
+        };
+        delete newObj[prop];
         return newObj;
     };
 
     const newPerson = removeProperty(oldPerson, 'age');
-    console.log(newPerson);
+    // console.log(newPerson);
+}
+// завдання на forEach
+
+{
+    // 146 Напишіть функцію calculateSum(array), яка обчислює суму всіх елементів масиву:
+    const arr = [1, 52, 73, 8, 10, 150];
+    let arrSum = 0;
+    arr.forEach(value => {
+        arrSum += value;
+    });
+    // console.log(arrSum);
+}
+
+{
+    // 146 Напишіть функцію calculateSum(array), яка обчислює суму всіх елементів масиву: (тип елементів в масиві рядок)
+    const arr = ['1', '52.2', '73.5', '8.99', '10', '150'];
+    let arrSum = 0;
+    arr.forEach(value => {
+        // arrSum += +value; // 294.99
+        // arrSum += Number(value);
+        // arrSum += parseInt(value, 10); // 8.99 error 294
+        // arrSum += parseFloat(value); // 294.99
+        // arrSum += parseFloat(value); // 294.99
+        // arrSum += ~value; 
+        ////
+        // arrSum += Math.floor(value); // '73.5', '8.99' - заокруглює до меншого 
+        // arrSum += Math.ceil(value); // 52.2, '73.5', '8.99' - заокруглює до більшого буде 296
+        arrSum += Math.round(value); // '73.5', '8.99' - заокруглює так як зазвичай має бути 
+
+    });
+    // console.log(arrSum);
+}
+
+{
+    // 147 Напишіть функцію printNames(array), яка виводить всі імена з масиву на екран:
+    let arr = ['Ross', 'Tom', 'Robert'];
+    const showNames = function (arr) {
+        arr.forEach(item => {
+            console.log(item);
+        });
+    };
+    // showNames(arr);
+}
+
+{
+    // 148 Напишіть функцію printNames(array), яка виводить всі імена з масиву на екран: але в масиві є обєкти 
+    const people = [{
+            name: "John",
+            age: 30
+        },
+        {
+            name: "Jane",
+            age: 25
+        }
+    ];
+    const showNames = function (arr) {
+        arr.forEach(item => {
+            console.log(item.name);
+        });
+    };
+    // showNames(people);
+}
+
+{
+    // 149 Напишіть функцію multiplyByTwo(array), яка множить на два всі числові значення масиву і повертає модифікований масив:
+    const mixedArray = [1, "two", 3, "four", 5];
+    const newArr = [];
+
+    const multiplyByTwo = function (arr) {
+        arr.forEach(item => {
+            if (typeof (item) === 'number') {
+                newArr.push(item * 2);
+            } else {
+                newArr.push(item);
+            }
+        });
+        return console.log(newArr);
+    };
+    // multiplyByTwo(mixedArray);
+}
+// завдання на перебор масиву for of 
+
+{
+    // 150 Напишіть функцію calculateAverage(array), яка обчислює середнє значення всіх елементів масиву:
+    const arr = [1, 2, 3, 4, 5];
+
+    const calculateAverag = function (arr) {
+        let awarage = 0;
+        for (let value of arr) {
+            awarage += value;
+        }
+
+        return console.log(awarage / arr.length);
+    };
+    // calculateAverag(arr);
+}
+
+{
+    // 151 Напишіть функцію calculateAverage(array), яка обчислює середнє значення всіх елементів масиву: використовуючи counter
+    const arr = [1, 2, 3, 4, 5];
+    let sum = 0;
+    let counter = 0;
+
+    const calculateAverag = function (arr) {
+        for (let value of arr) {
+            sum += value;
+            counter++;
+        }
+        return sum / counter;
+    };
+    // calculateAverag(arr);
+}
+
+{
+    // 152 Напишіть функцію findMax(array), яка знаходить максимальне значення у масиві:
+    const arr = [1, 2, 3, 4, 540];
+
+    const findMax = function (arr) {
+        let max = 0;
+
+        for (let item of arr) {
+            max = Math.max(item);
+        }
+
+        // return console.log(max); 
+    };
+    // findMax(arr);
+
+    // another way 
+    const arr2 = [1, 2, 3, 4, 5];
+
+    const findMax2 = function (arr) {
+        let max = arr[0];
+        for (let item of arr) {
+            if (item > max) {
+                max = item;
+            }
+        }
+        return max;
+    };
+    // console.log(findMax2(arr2));
+}
+
+{
+    // 153 Напишіть функцію removeDuplicates(array), яка видаляє дублікати з масиву:
+    const numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5];
+    const singleNumbers = [];
+    const removeDuplicates = function (arr) {
+        for (let item of arr) {
+            if (singleNumbers.includes(item)) {
+                continue;
+            } else {
+                singleNumbers.push(item);
+            }
+        }
+        return singleNumbers;
+    };
+    // console.log(removeDuplicates(numbers));
+
+    // another way using!
+    let result = [];
+    const removeDuplicates2 = function (arr) {
+        for (let item of arr) {
+            if (!result.includes(item)) {
+                result.push(item);
+            }
+        }
+        return result;
+    };
+    // console.log(removeDuplicates2(numbers));
+}
+
+{
+    // 154 Напишіть функцію countProperties(obj), яка підраховує кількість властивостей в об'єкті:
+    const person = {
+        name: 'John',
+        age: 30,
+        address: {
+            street: '123 Main St',
+            city: 'Anytown',
+            state: 'CA',
+            zip: '12345'
+        }
+    };
+
+    const countProperties = function (obj) {
+        for (let key in obj) {
+            if (typeof (obj[key]) === 'object') {
+                for (let i in obj[key]) {
+                    console.log(i);
+                }
+            } else {
+                console.log(key);
+            }
+        }
+    };
+    // countProperties(person);
+}
+
+{
+    // 155 Напишіть функцію countProperties(object), яка обчислює кількість властивостей у об'єкта:
+    const car = {
+        make: "Honda",
+        model: "Civic",
+        year: 2022
+    };
+
+    const countProperties = function (obj) {
+        let count = 0;
+        for (let key in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                count++;
+            }
+        }
+        return count;
+    };
+    // console.log(countProperties(car));
+}
+
+{
+    // 156 Напишіть функцію capitalizeKeys(object), яка повертає новий об'єкт з тими самими властивостями, але з ключами, що починаються з великої літери:
+    const person = {
+        name: "john",
+        age: 30,
+        city: "new york"
+    };
+
+
+
+    const capitalizeKeys = (obj => {
+        let newPerson = {};
+        for (let key in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                const capitalizedKey = key.charAt(0).toUpperCase() + key.slice(1);
+                newPerson[capitalizedKey] = obj[key];
+            }
+        }
+        return newPerson;
+    });
+
+    // console.log(capitalizeKeys(person));
+}
+
+{
+    // 157 Напишіть функцію reverseObject(object), яка повертає новий об'єкт з ключами і значеннями, зміненими місцями:
+    const fruit = {
+        apple: "red",
+        banana: "yellow",
+        orange: "orange"
+    };
+
+    const reverseObject = (object => {
+        const newObject = {};
+        for (let key in object) {
+            newObject[object[key]] = key;
+        }
+
+        return newObject;
+    });
+
+    // console.log(reverseObject(fruit));
+}
+
+{
+    // 158 С помощью цикла for выведите в консоль числа от 1 до 100.
+    for (let i = 0; i <= 100; i++) {
+        // console.log(i);
+    }
+
+    //  С помощью цикла for выведите в консоль числа от 11 до 33.
+    for (let i = 11; i <= 33; i++) {
+        // console.log(i);
+    }
+
+    // С помощью цикла for выведите в консоль четные числа в промежутке от 0 до 100.
+    for (let i = 0; i <= 100; i += 2) {
+        // console.log(i);
+    }
+    // С помощью цикла for выведите в консоль нечетные числа в промежутке от 1 до 99.
+
+    for (let i = 1; i <= 100; i += 2) {
+        // console.log(i);
+    }
+
+    // С помощью цикла for выведите в консоль числа от 100 до 0.
+    for (let i = 100; i >= 1; i--) {
+        // console.log(i);
+    }
+}
+
+{
+    // 159 Выведите в консоль все элементы следующего массива:
+    let arr = ['a', 'b', 'c', 'd', 'e'];
+    for (let item of arr) {
+        // console.log(item);
+    }
+    // те саме тільки за допомогою звичайного циклу 
+    let arr1 = ['a', 'b', 'c', 'd', 'e'];
+    for (let i = 0; i < arr1.length; i++) {
+        // console.log(arr[i]);
+    }
+}
+
+{
+    // 160 Выведите в консоль все ключи следующего объекта:
+    let obj = {
+        x: 1,
+        y: 2,
+        z: 3
+    };
+    for (let key in obj) {
+        // console.log(key);
+    }
+    // Выведите в консоль все элементы следующего объекта:
+    for (let key in obj) {
+        // console.log(obj[key]);
+    }
+}
+
+{
+    //while
+    // 161 Выведите в консоль числа от 1 до 100.
+    let i = 1;
+
+    while (i <= 100) {
+        // console.log(i);
+        i++;
+    }
+}
+
+{
+    // 162 Выведите в консоль числа от 11 до 33.
+    let i = 11;
+    while (i <= 33) {
+        // console.log(i);
+        i++;
+    }
+}
+
+{
+    // 163 Дано число num с неким начальным значением. Умножайте его на 3 столько раз, пока результат умножения не станет больше 1000. Какое число получится? Посчитайте количество итераций, необходимых для этого.
+    let num = 10;
+    let counter = 0;
+    while (num <= 1000) {
+        num *= 3;
+        counter++;
+    }
+    // console.log("Отримане число: " + num);
+    // console.log("Кількість ітерацій: " + counter);
+
+    // використовуючи цикл for 
+    let num2 = 10;
+    let counter2;
+    for (counter2 = 0; num2 <= 1000; counter2++) {
+        num2 *= 3;
+    }
+    // console.log("Отримане число (for): " + num2);
+    // console.log("Кількість ітерацій (for): " + counter2);
+}
+
+{
+    // 164 Выведите в консоль все элементы следующего массива, за исключением нулевого и последнего:
+    let arr = ['a', 'b', 'c', 'd', 'e'];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == arr[0]) continue;
+        if (arr[i] == arr[arr.length - 1]) continue;
+        // console.log(arr[i]);
+    }
+
+    // another way
+    for (let i = 1; i < arr.length - 1; i++) {
+        // console.log(arr[i]);
+    }
+}
+
+{
+    // 165 Выведите в консоль элементы следующего массива в обратном порядке:
+    let arr = ['a', 'b', 'c', 'd', 'e'];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        // console.log(arr[i]);
+    }
+}
+
+{ // 166 Исправьте ошибку, допущенную в следующем коде:
+    let arr = ['a', 'b', 'c', 'd', 'e'];
+    for (let i = 0; i < arr.length; i++) {
+        // console.log(arr[i]);
+    }
+}
+
+{
+    // 167 Выведите в консоль те элементы массива, которые больше 3-х, но меньше 10.
+
+    let arr = [2, 5, 9, 15, 1, 4];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 3 && arr[i] < 10) {
+            // console.log(arr[i]);
+        }
+    }
+}
+
+{
+    // 168 Выведите в консоль те элементы объекта, значения которых - нечетные числа.
+    let obj = {
+        a: 1,
+        b: 2,
+        c: 3,
+        d: 4,
+        e: 5
+    };
+
+    for (let key in obj) {
+        if (obj[key] % 2 == 0) {
+            continue;
+        } else {
+            // console.log(obj[key]);
+        }
+    }
+
+    for (let key in obj) {
+        if (obj[key] % 2 !== 0) {
+            // console.log(obj[key]);
+        }
+    }
+}
+
+{
+    // 169 Найдите сумму четных чисел от 2 до 100.
+
+    let result = 0;
+    for (let i = 0; i <= 100; i *= 2) {
+        i++;
+        result += i;
+    }
+    console.log(result);
+    
+    for (let i = 0; i <= 100; i++) {
+        i++;
+        if (i % 2 == 0) {
+            result += i;
+        }
+        console.log(result);
+    }
+
+    // вирішити це завдання декількома способами
 }
