@@ -2548,20 +2548,269 @@
 {
     // 169 Найдите сумму четных чисел от 2 до 100.
 
-    let result = 0;
-    for (let i = 0; i <= 100; i *= 2) {
-        i++;
-        result += i;
+    let result1 = 0;
+    for (let i = 2; i <= 100; i += 2) {
+        result1 += i;
     }
-    console.log(result);
-    
-    for (let i = 0; i <= 100; i++) {
-        i++;
-        if (i % 2 == 0) {
+    // console.log(result1);
+
+    let result2 = 0;
+    for (let i = 2; i <= 100; i++) {
+        if (i % 2 === 0) {
+            result2 += i;
+        }
+    }
+    // console.log(result2);
+}
+
+{
+    // 170 Найдите сумму нечетных чисел от 1 до 99.
+
+    let result = 0;
+    for (let i = 1; i <= 99; i++) {
+        if (i % 2 !== 0) {
             result += i;
         }
-        console.log(result);
     }
+    // console.log(result);
+}
 
-    // вирішити це завдання декількома способами
+{
+    // 171 Найдите произведение целых чисел от 1 до 20.
+    let result = 1;
+    for (let i = 1; i <= 20; i++) {
+        result *= i;
+    }
+    // console.log(result);
+
+    // за допомогою рекурсії
+    const factorial = function (n) {
+        if (n === 1) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    };
+
+    // console.log(factorial(20)); // виведе 2432902008176640000
+}
+
+{
+    // 172 Найдите сумму элементов этого массива.
+    let arr = [2, 5, 9, 3, 1, 4];
+    let result = 0;
+
+    for (let item of arr) {
+        result += item;
+    }
+    // console.log(result);
+}
+
+{
+    // 173 Найдите сумму элементов элементов, являющихся четными числами.
+    let arr = [2, 5, 9, 3, 1, 4];
+    let result = 0;
+
+    for (let item of arr) {
+        if (item % 2 == 0) {
+            result += item;
+        }
+    }
+    // console.log(result);
+}
+
+{
+    // 174 Найдите сумму квадратов элементов этого массива.
+    let arr = [2, 5, 9, 3, 1, 4];
+    let result = 0;
+
+    for (let item of arr) {
+        result += item * item;
+    }
+    // console.log(result);
+
+
+    let sumOfSquares = 0;
+    for (let elem of arr) {
+        sumOfSquares += elem * elem;
+    }
+    // console.log(sumOfSquares);
+
+    let result2 = 0;
+    for (let i = 0; i < arr.length; i++) {
+        result2 += arr[i] ** 2;
+    }
+    // console.log(result2);
+
+    // reduce 
+    let resultReduce = arr.reduce(function (sum, el) {
+        return sum + el ** 2;
+    }, 0);
+    // console.log(resultReduce);
+}
+
+{
+    // 175 Найдите произведение элементов этого массива.
+    let arr = [2, 5, 9, 3, 1, 4];
+    let result = 1;
+
+    for (let i = 0; i < arr.length; i++) {
+        result = result * arr[i];
+    }
+    // console.log(result);
+
+    // for of 
+    let result2 = 1;
+    for (let item of arr) {
+        result2 *= item;
+    }
+    // console.log(result2);
+
+    // reduce
+    let result3 = arr.reduce((acc, i) => acc * i, 1);
+    // console.log(result3);
+}
+
+{
+    // 176 С помощью цикла сформируйте строку, заполненную 5-тью дефисами.
+    let str = '';
+
+    for (let i = 0; i <= 5; i++) {
+        str += '-';
+    }
+    // console.log(str);
+}
+
+{
+    // 177 С помощью цикла сформируйте строку '123456789'.
+    let str = '';
+    for (let i = 1; i <= 5; i++) {
+        str += i;
+    }
+    // console.log(str);
+}
+
+{
+    // 178 С помощью цикла сформируйте строку '987654321'.
+    let str = '';
+    for (let i = 9; i >= 1; i--) {
+        str += i;
+    }
+    // console.log(str);
+}
+
+{
+    // 179 С помощью цикла сформируйте строку '-1-2-3-4-5-6-7-8-9-'.
+    let str = '-';
+    for (let i = 1; i <= 9; i++) {
+        str += `${i}-`;
+    }
+    // console.log(str);
+}
+
+{
+    // 180 Используя оператор ! инвертируйте приведенное условие.
+    let num1 = 5;
+    let num2 = 7;
+
+    if (!(num1 >= 0 || num2 <= 10)) {
+        // console.log('+++');
+    } else {
+        // console.log('---');
+    }
+}
+
+{
+    // 181 Перепишите следующий код с использованием сокращенной формы:
+    let test = true;
+    if (test) {
+        // console.log('+++');
+    } else {
+        // console.log('---');
+    }
+}
+
+{
+    // 182 Перепишите следующий код в сокращенной форме:
+    let test1 = true;
+    let test2 = true;
+    if (test1 && test2) {
+        // console.log('true');
+    } else {
+        // console.log('false');
+    }
+}
+
+{
+    // 183 Перепишите следующий код в сокращенной форме:
+    let test1 = true;
+    let test2 = true;
+
+    if (test1 && !test2) {
+        // console.log('+++');
+    } else {
+        // console.log('---');
+    }
+}
+
+{
+    // 184 Перепишите следующий код в сокращенной форме:
+    let test1 = true;
+    let test2 = true;
+
+    if (!test1 && !test2) {
+        // console.log('+++');
+    } else {
+        // console.log('---');
+    }
+}
+
+{
+    // 185 Перепишите следующий код в сокращенной форме:
+    let test1 = true;
+    let test2 = true;
+
+    if (test1 && test2) {
+        // console.log('+++');
+    } else {
+        // console.log('---');
+    }
+}
+
+{
+    let test1 = true;
+    let test2 = true;
+    let test3 = true;
+
+    if (test1 || (!test2 && !test3)) {
+        // console.log('+++');
+    } else {
+        // console.log('---');
+    }
+}
+
+{
+    // 186 Перепишите следующий код через тернарный оператор:
+    let num = 1;
+    let res;
+
+    if (num >= 0) {
+        res = '1';
+    } else {
+        res = '2';
+    }
+    // console.log(res);
+
+    let res2 = num >= 0 ? '1' : '2';
+    // console.log(res2);
+
+}
+
+
+
+
+
+
+
+{
+    // задачі на роботу з тернарним оператором 
 }
