@@ -3046,7 +3046,7 @@
 {
     // 205  Написать тернарный оператор, который будет проверять, содержит ли заданный массив элемент "apple". Если элемент содержится в массиве, то выводится сообщение "в массиве есть яблоко", в противном случае - "в массиве нет яблока".
     let fruits = ["banana", "orange", "apple", "pear"];
-    fruits.includes("apple") ? console.log('в массиве есть яблоко') : console.log('в массиве нет яблока');
+    // fruits.includes("apple") ? console.log('в массиве есть яблоко') : console.log('в массиве нет яблока');
 }
 
 {
@@ -3056,17 +3056,246 @@
         name: "John"
     };
 
-    'name' in obj ? console.log("объект содержит свойство name") : console.log("объект не содержит свойство name");
+    // 'name' in obj ? console.log("объект содержит свойство name") : console.log("объект не содержит свойство name");
+}
+
+{
+    // 207 Переберите циклом числа от 10 до 1000 и выведите в консоль первую цифру каждого числа.   
+    for (let i = 10; i < 100; i++) {
+        let str = String(i);
+        // console.log(str[0]);
+    }
+}
+
+{
+    // 208 Переберите циклом числа от 10 до 1000 и выведите в консоль сумму первой и второй цифры каждого числа.
+    for (let i = 10; i < 100; i++) {
+        let str = String(i);
+        // console.log(str[0], str[1]);
+    }
+}
+
+{
+    // 209 Переберите циклом числа от 10 до 1000 и выведите те числа, первая цифра которых равна 1.
+    for (let i = 10; i < 100; i++) {
+        let str = String(i);
+        if (str[0] == '1') {
+            // console.log(str);
+        }
+    }
+}
+
+{
+    // 210 Переберите циклом числа от 10 до 1000 и выведите на экран те числа, сумма двух первых цифр которых равна 5.
+    for (let i = 10; i < 100; i++) {
+        let str = String(i);
+        if (Number(str[0]) + Number(str[1]) == 5) {
+            // console.log(str);
+        }
+    }
+}
+
+{
+    // 211 Вивести всі ключі об'єкту:
+    let obj = {
+        key1: "Value1",
+        key2: "Value2",
+        key3: "Value3"
+    };
+    for (let key in obj) {
+        // console.log(key);
+        // console.log(obj[key]);
+    }
+}
+
+{
+    // 212 Перевірити, чи містить об'єкт певний ключ:
+    let obj = {
+        key1: "Value1",
+        key2: "Value2",
+        key3: "Value3"
+    };
+
+    for (let key in obj) {
+        if (key == 'key2') {
+            // console.log(key);
+        }
+    }
+
+    if ('key1' in obj) {
+        // console.log('key1');
+    }
+
+    if (Object.keys(obj).includes('key2')) {
+        // console.log("Object has key2.");
+    }
+}
+
+{
+    // 213 Вивести значення всіх ключів, що містять число:
+    let obj = {
+        key1: "Value1",
+        key2: 10,
+        key3: "Value3",
+        key4: 20
+    };
+
+    for (let key in obj) {
+        if (typeof (obj[key]) === 'number') {
+            // console.log(obj[key]);
+        }
+    }
+
+    let keys = Object.keys(obj);
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        if (typeof obj[key] === 'number') {
+            // console.log(`${key}: ${obj[key]}`);
+        }
+    }
+}
+
+{
+    // 214 Створити новий об'єкт, що містить лише деякі ключі з вихідного об'єкту:
+    let obj = {
+        key1: "Value1",
+        key2: 10,
+        key3: "Value3",
+        key4: 20
+    };
+
+    let newObj = {};
+    for (let key in obj) {
+        if (typeof (obj[key]) === 'number') {
+            newObj[key] = obj[key];
+        }
+    }
+    // console.log(newObj);
+}
+
+{
+    // 215 Створити новий об'єкт, що містить лише деякі ключі (в яких значення число) з вихідного об'єкту:
+    let obj = {
+        key1: "Value1",
+        key2: 10,
+        key3: "Value3",
+        key4: 20
+    };
+
+    const copyNumbers = function (obj) {
+        const newObj = {};
+
+        for (let key in obj) {
+            if (typeof (obj[key]) === 'number') {
+                newObj[key] = obj[key];
+            }
+        }
+        return newObj;
+    };
+    // console.log(copyNumbers(obj));
+}
+
+{
+    // 216 Дан массив с числами. Найдите сумму элементов, расположенных от начала массива до первого отрицательного числа.
+    let arr = [1, 2, 2, -4, 8];
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+            break;
+        } else {
+            sum += arr[i];
+        }
+    }
+    // console.log(sum);
+}
+
+{
+    // 217 Дан массив с числами. Найдите позицию первого числа 3 в этом массиве (считаем, что это число обязательно есть в массиве).
+    let arr = [1, 2, 3, -4, 3];
+    // console.log(arr.indexOf(3));
+}
+
+{
+    // *****
+    // 218 Определите, сколько целых чисел, начиная с числа 1, нужно сложить, чтобы сумма получилась больше 100.
+    let sum = 0;
+    let count = 0;
+    for (let i = 1; sum < 100; i++) {
+        count++;
+        sum += i;
+    }
+    // console.log(count);
+}
+
+{
+    let sum = 0;
+    let count = 0;
+
+    while (sum < 100) {
+        count++;
+        sum += count;
+    }
+    // console.log(count); // 14
+}
+
+{
+    // 219 С помощью двух вложенных циклов выведите на экран следующую строку:
+    for (let i = 1; i <= 9; i++) {
+        for (let j = 1; j <= 3; j++) {
+            // console.log(i);
+            // console.log(j);
+        }
+    }
 
 }
 
 {
-    // задачі на роботу з областю видимості змінних
+    // 220 С помощью двух вложенных циклов выведите на экран следующую строку:
+    for (let i = 1; i <= 3; i++) {
+        for (let j = 1; j <= 3; j++) {
+            // document.write(`${i}${j} `);
+        }
+    }
 }
 
 {
-    // задачі на роботу з операторами && || 
+    for (let i = 0; i < 3; i++) {
+        // document.write(' ' + i + ' ');
+        for (let j = 0; j < 3; j++) {
+            // document.write(j + '');
+        }
+    }
 }
+
 {
-    // задачі на роботу Object.keys()
+    {
+        for (let i = 0; i < 3; i++) {
+            // document.write(' ' + i + ' ');
+            for (let j = 0; j < 3; j++) {
+                // document.write(j + '');
+            }
+        }
+    }
+}
+
+{
+    // 221 виволимо зірочки на екран за допомогою вкладених циклів 
+    let result = '';
+    const length = 7;
+
+
+    for (let i = 1; i < length; i++) {
+        for (let j = 0; j < i; j++) {
+            result += '*';
+        }
+        result += '\n';
+    }
+
+    console.log(result);
+    // document.write(result);
+}
+
+{
+    // завдання на вклаlені цикли 
+    // порішати різні задачі на кладені цикли 
 }
